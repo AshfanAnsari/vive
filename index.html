@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>VIVE — Fashion for Now and Forever</title>
+<title>RAAIN — Fashion for Now and Forever</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { background:#E7EEF1; }
@@ -44,7 +44,7 @@
   .logo {
     position:absolute; left:50%; transform:translateX(-50%);
     display:flex; align-items:center; gap:8px;
-    font-family:"Cinzel", serif; font-weight:700; font-size:20px; letter-spacing:4.4px; color:#0F172A;
+    font-family:"Nunito", sans-serif; font-weight:900; font-size:19px; letter-spacing:3px; color:#0F172A;
   }
   .logo .diamond { font-size:15px; letter-spacing:0; }
   /* Shiny Pill (OriginKit) — sheen sweep across text, endless loop */
@@ -87,8 +87,8 @@
   .watermark {
     position:absolute; z-index:1;
     top:205px; left:50%; transform:translateX(-50%);
-    font-family:"Cinzel", serif; font-weight:700;
-    font-size:min(333px, 26.7vw); line-height:1; letter-spacing:40px;
+    font-family:"Nunito", sans-serif; font-weight:900;
+    font-size:min(248px, 19.9vw); line-height:1; letter-spacing:10px;
     color:rgba(255,255,255,.48);
     user-select:none; pointer-events:none; white-space:nowrap;
     animation:wm-in 1.6s cubic-bezier(.22,1,.36,1) both;
@@ -117,13 +117,14 @@
     animation:fade-up .8s ease 1.2s both;
   }
   .hero-row {
-    position:relative; z-index:10; pointer-events:none;
+    position:relative; z-index:3; pointer-events:none;
     display:flex; justify-content:space-between; align-items:flex-start;
   }
   .left-col { width:447px; max-width:44%; padding-top:16px; }
   h1 {
-    font-family:"Cinzel", serif; font-weight:700;
-    font-size:48px; line-height:48px; letter-spacing:-1.2px; color:#1E293B;
+    font-family:"Nunito", sans-serif; font-weight:900;
+    font-size:74px; line-height:.98; letter-spacing:-1px; color:#1E293B;
+    width:660px; max-width:none;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
   h1 .line { display:block; overflow:hidden; }
@@ -245,7 +246,7 @@
     .stage-zone { position:relative; top:0; height:440px; margin:6px auto -6px; order:2; }
     .hero-row { flex-direction:column; order:1; }
     .left-col { max-width:100%; width:100%; }
-    h1 { font-size:36px; line-height:38px; }
+    h1 { font-size:40px; line-height:1; width:100%; }
     .side-links { display:none; }
     .bottom-row { flex-direction:column; align-items:flex-start; order:3; margin-top:18px; }
     .centre-label { display:none; }
@@ -263,7 +264,7 @@
       <nav class="links">
         <a href="#" data-cursor="link">HOME</a><a href="#" data-cursor="link">SHOP</a><a href="#" data-cursor="link">CATALOG</a><a href="#" data-cursor="link">FAQ</a><a href="#" data-cursor="link">CONTACT</a>
       </nav>
-      <div class="logo"><span class="diamond">◆</span><span class="shiny">VIVE</span></div>
+      <div class="logo"><span class="diamond">◆</span><span class="shiny">RAAIN</span></div>
       <div class="head-right">
         <div class="search"><span>Search Inventory...</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.4"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg></div>
         <button class="cart" type="button" aria-label="Cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2"><path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg><span class="badge">3</span></button>
@@ -272,10 +273,10 @@
     </header>
 
     <section class="hero">
-      <div class="watermark">VIVE</div>
+      <div class="watermark">RAAIN</div>
 
       <div class="stage-zone" id="stageZone" data-cursor="stage" role="button" aria-label="Drag to rotate the mannequin">
-        <video class="stage-video" id="stageVideo" autoplay muted loop playsinline poster="poster.png" aria-label="Rotating mannequin wearing the taupe VIVE set">
+        <video class="stage-video" id="stageVideo" autoplay muted loop playsinline poster="poster.png" aria-label="Rotating mannequin wearing the taupe RAAIN set">
           <source src="mannequin-alpha.webm" type="video/webm"/>
         </video>
         <div class="stage-hint">DRAG TO ROTATE</div>
@@ -283,8 +284,8 @@
 
       <div class="hero-row">
         <div class="left-col">
-          <h1><span class="line"><span>FASHION FOR</span></span><span class="line"><span>NOW</span></span><span class="line"><span>AND FOREVER</span></span><span class="line"><span>WITH</span></span><span class="line"><span>VIVE</span></span></h1>
-          <p class="lede">Fashion Vive elevated timeless silhouettes, heatless, and premium form. Pioneering loose community at its poetics realm.</p>
+          <h1><span class="line"><span>FASHION FOR</span></span><span class="line"><span>NOW</span></span><span class="line"><span>AND FOREVER</span></span><span class="line"><span>WITH</span></span><span class="line"><span>RAAIN</span></span></h1>
+          <p class="lede">Fashion Raain elevated timeless silhouettes, heatless, and premium form. Pioneering loose community at its poetics realm.</p>
           <div class="actions">
             <button class="btn-dark" type="button" data-magnet><span class="sweep"></span><span class="btn-label">Explore Collection <span>→</span></span></button>
             <button class="btn-ghost" type="button" data-magnet><span class="sweep"></span><span class="btn-label">About Us <span>→</span></span></button>
@@ -309,7 +310,7 @@
           </div>
         </div>
 
-        <div class="centre-label">VIVE 2024 CATALOGUE</div>
+        <div class="centre-label">RAAIN 2024 CATALOGUE</div>
 
         <div class="card-wrap">
           <div class="card">
