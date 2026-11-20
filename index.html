@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VIVE — Fashion for Now and Forever</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#E7EEF1; }
+  body {
+    font-family:"Plus Jakarta Sans", sans-serif;
+    color:#1E293B;
+    min-height:100vh;
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:28px 16px;
+  }
+  .shell {
+    position:relative;
+    width:100%; max-width:1248px;
+    border-radius:32px;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 75% 20%, #D8EBF3 0%, #B8D6E3 45%, #9FC3D9 100%);
+    box-shadow:0 30px 80px -30px rgba(28,57,84,.35), inset 0 0 0 1px rgba(255,255,255,.64);
+  }
+  /* ---------- header ---------- */
+  header {
+    position:relative; z-index:30;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:17px 20px 0 37px;
+    min-height:60px;
+  }
+  nav.links { display:flex; gap:28px; }
+  nav.links a {
+    font-size:12px; font-weight:600; letter-spacing:.6px;
+    color:#475569; text-decoration:none;
+  }
+  nav.links a:first-child { color:#0F172A; }
+  nav.links a:hover { color:#0F172A; }
+  .logo {
+    position:absolute; left:50%; transform:translateX(-50%);
+    display:flex; align-items:center; gap:8px;
+    font-family:"Cinzel", serif; font-weight:700; font-size:20px; letter-spacing:4.4px; color:#0F172A;
+  }
+  .logo .diamond { font-size:15px; letter-spacing:0; }
+  .head-right { display:flex; align-items:center; gap:14px; margin-left:auto; }
+  .search {
+    width:224px; height:32px; border-radius:999px;
+    background:rgba(248,250,252,.49);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 10px 0 17px;
+    font-size:12px; color:#94A3B8;
+  }
+  .search .mag { color:#64748B; font-size:13px; }
+  .cart {
+    position:relative; width:50px; height:28px;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    font-size:15px; color:#334155;
+  }
+  .cart .badge {
+    width:16px; height:16px; border-radius:999px; background:#334155; color:#fff;
+    font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+  .profile { display:flex; align-items:center; gap:9px; font-size:12px; font-weight:500; color:#334155; }
+  .profile img { width:28px; height:28px; border-radius:999px; object-fit:cover; object-position:top; }
+  /* ---------- hero ---------- */
+  .hero {
+    position:relative;
+    min-height:761px;
+    margin-top:8px;
+    display:flex; flex-direction:column;
+    padding:48px 48px 30px 48px;
+  }
+  .watermark {
+    position:absolute; z-index:1;
+    top:205px; left:50%; transform:translateX(-50%);
+    font-family:"Cinzel", serif; font-weight:700;
+    font-size:min(333px, 26.7vw); line-height:1; letter-spacing:40px;
+    color:rgba(255,255,255,.48);
+    user-select:none; pointer-events:none; white-space:nowrap;
+  }
+  /* the rotating mannequin — centre stage, in front of the watermark */
+  .stage-video {
+    position:absolute; z-index:5;
+    left:50%; transform:translateX(-50%);
+    top:64px;
+    height:606px; max-height:82%;
+    filter:drop-shadow(0 34px 28px rgba(28,57,84,.28));
+    pointer-events:none;
+  }
+  .hero-row {
+    position:relative; z-index:10;
+    display:flex; justify-content:space-between; align-items:flex-start;
+  }
+  .left-col { width:447px; max-width:44%; padding-top:16px; }
+  h1 {
+    font-family:"Cinzel", serif; font-weight:700;
+    font-size:48px; line-height:48px; letter-spacing:-1.2px; color:#1E293B;
+  }
+  .lede {
+    margin-top:24px; width:371px; max-width:100%;
+    font-size:14px; line-height:20px; letter-spacing:.35px; color:#475569;
+  }
+  .actions { margin-top:24px; display:flex; gap:14px; align-items:center; }
+  .btn-dark {
+    height:36px; padding:0 18px; border-radius:999px; border:0; cursor:pointer;
+    background:#1C3954; color:#fff; font-family:inherit; font-size:12px; font-weight:600;
+    display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 10px 22px -8px rgba(28,57,84,.55);
+  }
+  .btn-ghost {
+    height:38px; padding:0 20px; border-radius:999px; cursor:pointer;
+    background:rgba(255,255,255,.14); color:#1E293B; font-family:inherit; font-size:12px; font-weight:600;
+    border:1px solid rgba(30,41,59,.35);
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .side-links { width:210px; margin-top:8px; }
+  .side-links a {
+    display:flex; justify-content:space-between; align-items:center;
+    height:29px; margin-bottom:14px;
+    font-size:12px; font-weight:500; color:rgba(51,65,85,.81); text-decoration:none;
+  }
+  .side-links a:hover { color:#0F172A; }
+  .side-links a span.arr { font-size:11px; }
+  /* ---------- bottom row ---------- */
+  .bottom-row {
+    position:relative; z-index:10;
+    margin-top:auto;
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+  }
+  .metrics { display:flex; align-items:center; gap:16px; width:357px; }
+  .metrics .stack { display:flex; flex-direction:column; gap:5px; }
+  .avatars { display:flex; }
+  .avatars img {
+    width:24px; height:24px; border-radius:999px; object-fit:cover; object-position:top;
+    border:2px solid rgba(255,255,255,.85); margin-left:-8px; background:#E2E8F0;
+  }
+  .avatars img:first-child { margin-left:0; }
+  .metrics .cap { font-size:11px; font-weight:500; color:#334155; }
+  .centre-label {
+    font-size:10px; font-weight:500; letter-spacing:3px; color:rgba(71,85,105,.49);
+    padding-bottom:6px; white-space:nowrap;
+  }
+  .card-wrap { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+  .card {
+    width:384px; max-width:100%;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.45);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 24px 44px -22px rgba(28,57,84,.35);
+  }
+  .card-head { display:flex; justify-content:space-between; align-items:center; }
+  .card-head h2 { font-size:12px; font-weight:700; letter-spacing:.6px; color:#1E293B; }
+  .card-head .spark { color:rgba(71,85,105,.49); font-size:13px; }
+  .card-mid { display:flex; gap:12px; margin-top:8px; align-items:center; }
+  .thumbs { display:flex; gap:6px; }
+  .thumbs img { width:40px; height:48px; border-radius:8px; object-fit:cover; background:#E2E8F0; }
+  .card-mid p { font-size:11.5px; line-height:16px; color:#334155; }
+  .card-mid p .dim { color:rgba(71,85,105,.75); }
+  .card-foot { display:flex; align-items:center; gap:14px; margin-top:12px; }
+  .track { flex:1; height:3px; border-radius:99px; background:rgba(30,41,59,.18); position:relative; }
+  .track::after { content:""; position:absolute; left:0; top:0; height:100%; width:34%; border-radius:99px; background:#1E293B; }
+  .pager { display:flex; gap:6px; align-items:center; }
+  .pager button {
+    height:20px; min-width:38px; padding:0 10px; border-radius:999px; cursor:pointer;
+    border:1px solid rgba(30,41,59,.3); background:rgba(255,255,255,.35);
+    font-family:inherit; font-size:10px; font-weight:600; color:#334155;
+  }
+  .pager button.next { background:#1C3954; color:#fff; border-color:#1C3954; }
+  .email { font-family:"Liberation Mono", monospace; font-size:11px; color:rgba(71,85,105,.64); padding-right:2px; }
+  @media (max-width:900px) {
+    header { padding:14px 16px 0; flex-wrap:wrap; }
+    .logo { position:static; transform:none; order:-1; }
+    .search { display:none; }
+    .hero { min-height:0; padding:28px 20px 22px; }
+    .watermark { font-size:34vw; letter-spacing:12px; top:300px; }
+    .stage-video { position:relative; top:0; height:440px; margin:6px auto -6px; order:2; }
+    .hero-row { flex-direction:column; order:1; }
+    .left-col { max-width:100%; width:100%; }
+    h1 { font-size:36px; line-height:38px; }
+    .side-links { display:none; }
+    .bottom-row { flex-direction:column; align-items:flex-start; order:3; margin-top:18px; }
+    .centre-label { display:none; }
+    .card-wrap { align-items:flex-start; }
+    .metrics { width:100%; }
+  }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <nav class="links">
+        <a href="#">HOME</a><a href="#">SHOP</a><a href="#">CATALOG</a><a href="#">FAQ</a><a href="#">CONTACT</a>
+      </nav>
+      <div class="logo"><span class="diamond">◆</span>VIVE</div>
+      <div class="head-right">
+        <div class="search"><span>Search Inventory...</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.4"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg></div>
+        <div class="cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2"><path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg><span class="badge">3</span></div>
+        <div class="profile"><img src="thumb_0.3.jpg" alt="Gracie Heine"/><span>Gracie Heine</span></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="watermark">VIVE</div>
+
+      <video class="stage-video" autoplay muted loop playsinline poster="poster.png" aria-label="Rotating mannequin wearing the taupe VIVE set">
+        <source src="mannequin-alpha.webm" type="video/webm"/>
+      </video>
+
+      <div class="hero-row">
+        <div class="left-col">
+          <h1>FASHION FOR<br/>NOW<br/>AND FOREVER<br/>WITH<br/>VIVE</h1>
+          <p class="lede">Fashion Vive elevated timeless silhouettes, heatless, and premium form. Pioneering loose community at its poetics realm.</p>
+          <div class="actions">
+            <button class="btn-dark">Explore Collection <span>→</span></button>
+            <button class="btn-ghost">About Us <span>→</span></button>
+          </div>
+        </div>
+        <div class="side-links">
+          <a href="#">Business Listing <span class="arr">↗</span></a>
+          <a href="#">Contact Culture <span class="arr">↗</span></a>
+          <a href="#">Business Devices <span class="arr">↗</span></a>
+          <a href="#">Market Creation <span class="arr">↗</span></a>
+        </div>
+      </div>
+
+      <div class="bottom-row">
+        <div class="metrics">
+          <div style="width:96px;height:96px;border-radius:50%;background:conic-gradient(#A4CBDF 0 32%, #8CB7CD 32% 55%, rgba(255,255,255,.38) 55% 100%);box-shadow:inset 0 0 0 3px rgba(255,255,255,.65), 0 0 0 1px rgba(255,255,255,.35);position:relative;flex:none"><div style="position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:#fff"></div></div>
+          <div class="stack">
+            <div class="avatars">
+              <img src="thumb_0.3.jpg" alt=""/><img src="thumb_2.0.jpg" alt=""/><img src="thumb_4.0.jpg" alt=""/><img src="thumb_0.3.jpg" alt=""/><img src="thumb_2.0.jpg" alt=""/>
+            </div>
+            <div class="cap">Last Atelier Collections</div>
+          </div>
+        </div>
+
+        <div class="centre-label">VIVE 2024 CATALOGUE</div>
+
+        <div class="card-wrap">
+          <div class="card">
+            <div class="card-head"><h2>NEW COLLECTION</h2><span class="spark">✦</span></div>
+            <div class="card-mid">
+              <div class="thumbs">
+                <img src="thumb_0.3.jpg" alt="Taupe set, front"/>
+                <img src="thumb_2.0.jpg" alt="Taupe set, side"/>
+                <img src="thumb_4.0.jpg" alt="Taupe set, back"/>
+              </div>
+              <p>Pure &amp; elevated garment for modular living.<br/><span class="dim">Unrestricted drape silhouette.</span></p>
+            </div>
+            <div class="card-foot">
+              <div class="track"></div>
+              <div class="pager"><button type="button">01</button><button type="button" class="next">→</button></div>
+            </div>
+          </div>
+          <div class="email">vive@nemtoxde.com</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
