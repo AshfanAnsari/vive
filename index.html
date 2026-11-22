@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>RAAIN — Fashion for Now and Forever</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html,body { background:#E7EEF1; }
+
+  html, body {
+    background:radial-gradient(130% 100% at 50% 0%, #93B4C7 0%, #7399AE 45%, #577E95 100%);
+    background-attachment:fixed;
+  }
   body {
     font-family:"Plus Jakarta Sans", sans-serif;
     color:#1E293B;
@@ -17,22 +21,27 @@
     display:flex; align-items:flex-start; justify-content:center;
     padding:28px 16px;
   }
+
   html.has-dot-cursor, html.has-dot-cursor * { cursor:none !important; }
-  .shell {
-    position:relative;
+
+  /* ---------- white frame ---------- */
+  .frame {
     width:100%; max-width:1248px;
-    border-radius:32px;
-    overflow:hidden;
-    background:
-      radial-gradient(120% 90% at 75% 20%, #D8EBF3 0%, #B8D6E3 45%, #9FC3D9 100%);
-    box-shadow:0 30px 80px -30px rgba(28,57,84,.35), inset 0 0 0 1px rgba(255,255,255,.64);
+    background:#FDFEFE;
+    border-radius:28px;
+    padding:14px;
+    box-shadow:0 40px 90px -30px rgba(18,42,63,.5), inset 0 0 0 1px rgba(255,255,255,.7);
   }
-  /* ---------- header ---------- */
-  header {
+
+  /* ---------- nav bar — its own separate bar ---------- */
+  .navbar {
     position:relative; z-index:30;
     display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:17px 20px 0 37px;
-    min-height:60px;
+    min-height:66px;
+    padding:10px 26px;
+    background:linear-gradient(180deg, #F8FAFB, #EEF3F5);
+    border-radius:18px;
+    box-shadow:inset 0 0 0 1px rgba(30,41,59,.05);
   }
   nav.links { display:flex; gap:28px; }
   nav.links a {
@@ -41,12 +50,14 @@
   }
   nav.links a:first-child { color:#0F172A; }
   nav.links a:hover { color:#0F172A; }
+
   .logo {
     position:absolute; left:50%; transform:translateX(-50%);
     display:flex; align-items:center; gap:8px;
     font-family:"Nunito", sans-serif; font-weight:900; font-size:19px; letter-spacing:3px; color:#0F172A;
   }
   .logo .diamond { font-size:15px; letter-spacing:0; }
+
   /* Shiny Pill (OriginKit) — sheen sweep across text, endless loop */
   .shiny {
     background:linear-gradient(110deg, #0F172A 42%, #8FC3E4 50%, #0F172A 58%);
@@ -56,11 +67,12 @@
     animation:shiny-sweep 4.5s linear infinite;
   }
   @keyframes shiny-sweep { 0%{background-position:130% 0} 100%{background-position:-90% 0} }
+
   .head-right { display:flex; align-items:center; gap:14px; margin-left:auto; }
   .search {
     width:224px; height:32px; border-radius:999px;
-    background:rgba(248,250,252,.49);
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+    background:rgba(255,255,255,.85);
+    box-shadow:inset 0 0 0 1px rgba(30,41,59,.07);
     display:flex; align-items:center; justify-content:space-between;
     padding:0 10px 0 17px;
     font-size:12px; color:#94A3B8;
@@ -76,30 +88,37 @@
   }
   .profile { display:flex; align-items:center; gap:9px; font-size:12px; font-weight:500; color:#334155; }
   .profile img { width:28px; height:28px; border-radius:999px; object-fit:cover; object-position:top; }
-  /* ---------- hero ---------- */
+
+  /* ---------- hero panel — separate section under the nav bar ---------- */
   .hero {
     position:relative;
-    min-height:761px;
-    margin-top:8px;
+    margin-top:14px;
+    border-radius:22px;
+    overflow:hidden;
+    min-height:748px;
     display:flex; flex-direction:column;
-    padding:48px 48px 30px 48px;
+    padding:46px 48px 30px 48px;
+    background:radial-gradient(120% 90% at 75% 20%, #D8EBF3 0%, #B8D6E3 45%, #9FC3D9 100%);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
   }
+
   .watermark {
     position:absolute; z-index:1;
-    top:280px; left:50%; transform:translateX(-50%);
+    top:272px; left:50%; transform:translateX(-50%);
     font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:min(370px, 29.6vw); line-height:1; letter-spacing:14px;
+    font-size:min(360px, 28.8vw); line-height:1; letter-spacing:14px;
     color:rgba(255,255,255,.48);
     user-select:none; pointer-events:none; white-space:nowrap;
     animation:wm-in 1.6s cubic-bezier(.22,1,.36,1) both;
   }
   @keyframes wm-in { from{opacity:0; transform:translateX(-50%) scale(1.05)} to{opacity:1; transform:translateX(-50%) scale(1)} }
+
   /* the rotating mannequin — centre stage, in front of the watermark */
   .stage-zone {
     position:absolute; z-index:5;
     left:50%; transform:translateX(-50%);
-    top:64px;
-    height:606px; max-height:82%;
+    top:66px;
+    height:604px; max-height:82%;
     aspect-ratio:820 / 1056;
     touch-action:pan-y;
   }
@@ -116,147 +135,42 @@
     white-space:nowrap; user-select:none; pointer-events:none;
     animation:fade-up .8s ease 1.2s both;
   }
-  .hero-row {
-    position:relative; z-index:3; pointer-events:none;
-    display:flex; justify-content:space-between; align-items:flex-start;
-  }
-  .left-col { width:447px; max-width:44%; padding-top:16px; }
+
   h1 {
     position:relative; z-index:2;
     font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:clamp(64px, 17.5vw, 218px); line-height:.94; letter-spacing:2px;
+    font-size:clamp(64px, 17vw, 214px); line-height:.94; letter-spacing:2px;
     width:100%; max-width:none; text-align:center; color:#FFFFFF;
-  }
-  h1 .line > span {
-    background:linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,.66));
-    -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
   h1 .line { display:block; overflow:hidden; }
-  h1 .line > span { display:block; animation:line-rise .95s cubic-bezier(.22,1,.36,1) both; }
-  h1 .line:nth-child(1) > span { animation-delay:.05s } h1 .line:nth-child(2) > span { animation-delay:.14s }
-  h1 .line:nth-child(3) > span { animation-delay:.23s } h1 .line:nth-child(4) > span { animation-delay:.32s }
-  h1 .line:nth-child(5) > span { animation-delay:.41s }
+  h1 .line > span {
+    display:block;
+    background:linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,.66));
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:line-rise .95s cubic-bezier(.22,1,.36,1) both;
+  }
+  h1 .line:nth-child(1) > span { animation-delay:.05s }
+  h1 .line:nth-child(2) > span { animation-delay:.14s }
   @keyframes line-rise { from{transform:translateY(112%)} to{transform:translateY(0)} }
-  .lede {
-    margin-top:24px; width:371px; max-width:100%;
-    font-size:14px; line-height:20px; letter-spacing:.35px; color:#475569;
-    animation:fade-up .8s cubic-bezier(.22,1,.36,1) .55s both;
-  }
-  .actions { margin-top:24px; display:flex; gap:14px; align-items:center; animation:fade-up .8s cubic-bezier(.22,1,.36,1) .68s both; }
+
   @keyframes fade-up { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
-  /* Magnetic Hover Button (OriginKit) — pull + entry-point sweep */
-  .btn-dark, .btn-ghost {
-    position:relative;
-    display:inline-flex; align-items:center; gap:10px;
-    border-radius:999px; cursor:pointer; font-family:inherit; font-size:12px; font-weight:600;
-  }
-  .btn-dark {
-    height:36px; padding:0 18px; border:0;
-    background:#1C3954; color:#fff;
-    box-shadow:0 10px 22px -8px rgba(28,57,84,.55);
-    --sweep:#F2F8FB; --on-color:#1C3954;
-  }
-  .btn-ghost {
-    height:38px; padding:0 20px;
-    background:rgba(255,255,255,.14); color:#1E293B;
-    border:1px solid rgba(30,41,59,.35);
-    --sweep:#1C3954; --on-color:#FFFFFF;
-  }
-  .btn-dark .btn-label, .btn-ghost .btn-label { position:relative; z-index:1; display:inline-flex; align-items:center; gap:10px; }
-  .btn-dark { transition:background .3s, box-shadow .3s; }
-  .btn-ghost { transition:background .3s, border-color .3s; }
-  .btn-dark:hover { background:#24486B; box-shadow:0 14px 26px -8px rgba(28,57,84,.55); }
-  .btn-ghost:hover { background:rgba(255,255,255,.32); border-color:rgba(30,41,59,.55); }
-  .hero-row a, .hero-row button, .bottom-row a, .bottom-row button { pointer-events:auto; }
-  .side-links { width:210px; margin-top:8px; animation:fade-up .8s cubic-bezier(.22,1,.36,1) .8s both; }
-  .side-links a {
-    display:flex; justify-content:space-between; align-items:center;
-    height:29px; margin-bottom:14px;
-    font-size:12px; font-weight:500; color:rgba(51,65,85,.81); text-decoration:none;
-  }
-  .side-links a:hover { color:#0F172A; }
-  .side-links a span.arr { font-size:11px; transition:transform .3s cubic-bezier(.22,1,.36,1); }
-  .side-links a:hover span.arr { transform:translate(2px,-2px); }
-  /* ---------- bottom row ---------- */
-  .bottom-row {
-    position:relative; z-index:10; pointer-events:none;
-    margin-top:auto;
-    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
-    animation:fade-up .9s cubic-bezier(.22,1,.36,1) .9s both;
-  }
-  .metrics { display:flex; align-items:center; gap:16px; width:357px; }
-  .metrics .stack { display:flex; flex-direction:column; gap:5px; }
-  .avatars { display:flex; }
-  .avatars img {
-    width:24px; height:24px; border-radius:999px; object-fit:cover; object-position:top;
-    border:2px solid rgba(255,255,255,.85); margin-left:-8px; background:#E2E8F0;
-  }
-  .avatars img:first-child { margin-left:0; }
-  .metrics .cap { font-size:11px; font-weight:500; color:#334155; }
-  .centre-label {
-    font-size:10px; font-weight:500; letter-spacing:3px; color:rgba(71,85,105,.49);
-    padding-bottom:6px; white-space:nowrap;
-  }
-  .card-wrap { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
-  .card {
-    width:384px; max-width:100%;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.45);
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border-radius:18px;
-    padding:15px;
-    box-shadow:0 24px 44px -22px rgba(28,57,84,.35);
-  }
-  .card-head { display:flex; justify-content:space-between; align-items:center; }
-  .card-head h2 { font-size:12px; font-weight:700; letter-spacing:.6px; }
-  .card-head .spark { color:rgba(71,85,105,.49); font-size:13px; }
-  .card-mid { display:flex; gap:12px; margin-top:8px; align-items:center; }
-  .thumbs { display:flex; gap:6px; }
-  .thumbs button {
-    padding:0; border:0; background:none; border-radius:8px; line-height:0;
-    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
-  }
-  .thumbs button img { width:40px; height:48px; border-radius:8px; object-fit:cover; background:#E2E8F0; }
-  .thumbs button:hover { transform:translateY(-3px); }
-  .thumbs button.active { box-shadow:0 0 0 2px #1C3954; }
-  .card-mid p { font-size:11.5px; line-height:16px; color:#334155; }
-  .card-mid p .dim { color:rgba(71,85,105,.75); }
-  .card-foot { display:flex; align-items:center; gap:14px; margin-top:12px; }
-  .track { flex:1; height:14px; display:flex; align-items:center; background:none; border:0; padding:0; }
-  .track .rail { position:relative; flex:1; height:3px; border-radius:99px; background:rgba(30,41,59,.18); }
-  .track .fill { position:absolute; left:0; top:0; height:100%; width:0%; border-radius:99px; background:#1E293B; }
-  .pager { display:flex; gap:6px; align-items:center; }
-  .pager button {
-    height:20px; min-width:38px; padding:0 10px; border-radius:999px; cursor:pointer;
-    border:1px solid rgba(30,41,59,.3); background:rgba(255,255,255,.35);
-    font-family:inherit; font-size:10px; font-weight:600; color:#334155;
-    transition:background .3s, color .3s, transform .3s;
-  }
-  .pager button.next { background:#1C3954; color:#fff; border-color:#1C3954; }
-  .pager button:active { transform:scale(.94); }
-  .email { font-family:"Liberation Mono", monospace; font-size:11px; color:rgba(71,85,105,.64); padding-right:2px; }
+
   #dot-cursor-canvas { position:fixed; inset:0; z-index:9999; pointer-events:none; }
-  /* Temporarily removed 2026-11-22 (user: "remove all these for now") - CTA buttons, side-links, NEW COLLECTION card.
-     Hidden, not deleted: the card controls are wired into the rotation script. */
-  .actions, .side-links, .card-wrap { display:none !important; }
 
   @media (max-width:900px) {
-    header { padding:14px 16px 0; flex-wrap:wrap; }
+    body { padding:14px 8px; }
+    .frame { padding:10px; border-radius:22px; }
+    .navbar { padding:12px 16px; flex-wrap:wrap; border-radius:14px; min-height:0; }
     .logo { position:static; transform:none; order:-1; }
+    nav.links { gap:18px; }
+    nav.links a { font-size:11px; }
     .search { display:none; }
-    .hero { min-height:0; padding:28px 20px 22px; }
-    .watermark { font-size:34vw; letter-spacing:12px; top:300px; }
+    .hero { min-height:0; padding:28px 20px 22px; border-radius:18px; margin-top:10px; }
+    .watermark { font-size:34vw; letter-spacing:12px; top:290px; }
+    h1 { line-height:1; width:100%; order:1; }
     .stage-zone { position:relative; top:0; height:440px; margin:6px auto -6px; order:2; }
-    .hero-row { flex-direction:column; order:1; }
-    .left-col { max-width:100%; width:100%; }
-    h1 { line-height:1; width:100%; }
-    .side-links { display:none; }
-    .bottom-row { flex-direction:column; align-items:flex-start; order:3; margin-top:18px; }
-    .centre-label { display:none; }
-    .card-wrap { align-items:flex-start; }
-    .metrics { width:100%; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation:none !important; transition:none !important; }
@@ -264,8 +178,8 @@
 </style>
 </head>
 <body>
-  <main class="shell">
-    <header>
+  <main class="frame">
+    <header class="navbar">
       <nav class="links">
         <a href="#" data-cursor="link">HOME</a><a href="#" data-cursor="link">SHOP</a><a href="#" data-cursor="link">CATALOG</a><a href="#" data-cursor="link">FAQ</a><a href="#" data-cursor="link">CONTACT</a>
       </nav>
@@ -288,44 +202,6 @@
       </div>
 
       <h1><span class="line"><span>DRESS LIKE</span></span><span class="line"><span>YOU BELONG</span></span></h1>
-
-      <div class="hero-row">
-        <div class="left-col">
-          <div class="actions">
-            <button class="btn-dark" type="button"><span class="btn-label">Explore Collection <span>→</span></span></button>
-            <button class="btn-ghost" type="button"><span class="btn-label">About Us <span>→</span></span></button>
-          </div>
-        </div>
-        <div class="side-links">
-          <a href="#" data-cursor="link">Business Listing <span class="arr">↗</span></a>
-          <a href="#" data-cursor="link">Contact Culture <span class="arr">↗</span></a>
-          <a href="#" data-cursor="link">Business Devices <span class="arr">↗</span></a>
-          <a href="#" data-cursor="link">Market Creation <span class="arr">↗</span></a>
-        </div>
-      </div>
-
-      <div class="bottom-row">
-        <div class="centre-label">RAAIN 2024 CATALOGUE</div>
-
-        <div class="card-wrap">
-          <div class="card">
-            <div class="card-head"><h2 class="shiny">NEW COLLECTION</h2><span class="spark">✦</span></div>
-            <div class="card-mid">
-              <div class="thumbs">
-                <button type="button" class="thumb active" data-angle="0" aria-label="Front view"><img src="thumb_0.3.jpg" alt="Taupe set, front"/></button>
-                <button type="button" class="thumb" data-angle="1" aria-label="Side view"><img src="thumb_2.0.jpg" alt="Taupe set, side"/></button>
-                <button type="button" class="thumb" data-angle="2" aria-label="Back view"><img src="thumb_4.0.jpg" alt="Taupe set, back"/></button>
-              </div>
-              <p>Pure &amp; elevated garment for modular living.<br/><span class="dim">Unrestricted drape silhouette.</span></p>
-            </div>
-            <div class="card-foot">
-              <button class="track" id="track" type="button" aria-label="Scrub the rotation"><span class="rail"><span class="fill" id="trackFill"></span></span></button>
-              <div class="pager"><button type="button" id="angleLabel">01</button><button type="button" class="next" id="angleNext" aria-label="Next angle">→</button></div>
-            </div>
-          </div>
-          <div class="email">vive@nemtoxde.com</div>
-        </div>
-      </div>
     </section>
   </main>
 
@@ -337,48 +213,13 @@
   var video = document.getElementById("stageVideo");
   var zone = document.getElementById("stageZone");
 
-  /* ============ Stage control: drag-to-spin, angle jumps, scrub ============ */
-  var ANGLES = [0.2, 2.1, 4.1];           // front / side / back, seconds into the loop
-  var angleIdx = 0;
-  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".thumb"));
-  var angleLabel = document.getElementById("angleLabel");
-  var fill = document.getElementById("trackFill");
+  /* ============ Stage control: drag-to-spin with inertia ============ */
   var holdUntil = 0;                        // stage stays paused while now < holdUntil
-  var tween = null;                         // active angle tween {from,to,start,dur}
-
   function dur(){ return video.duration || 7.85; }
-  function setAngleUI(i){
-    angleIdx = i;
-    thumbs.forEach(function(t,j){ t.classList.toggle("active", j===i); });
-    angleLabel.textContent = "0" + (i+1);
-  }
-  function nearestAngle(t){
-    var best=0, bd=1e9;
-    ANGLES.forEach(function(a,i){ var d=Math.abs(t-a); if(d<bd){bd=d;best=i;} });
-    return best;
-  }
-  function flyTo(target, holdMs){
-    var d = dur();
-    var from = video.currentTime;
-    var delta = ((target - from) % d + d) % d;
-    if (delta > d/2) delta -= d;            // shortest way around the loop
-    tween = { from: from, delta: delta, start: performance.now(), durMs: 650 };
-    holdUntil = performance.now() + 650 + (holdMs || 0);
-    video.pause();
-  }
-  thumbs.forEach(function(t,i){ t.addEventListener("click", function(){ setAngleUI(i); flyTo(ANGLES[i], 1500); }); });
-  document.getElementById("angleNext").addEventListener("click", function(){
-    var n = (angleIdx + 1) % 3; setAngleUI(n); flyTo(ANGLES[n], 1500);
-  });
-  document.getElementById("track").addEventListener("click", function(e){
-    var r = this.getBoundingClientRect();
-    var f = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-    flyTo(f * dur(), 1200);
-  });
 
   var dragging = false, dragX = 0, dragT = 0, lastX = 0, lastMoveT = 0, vel = 0, inertia = 0, inertiaStart = 0, lastTick = 0;
   zone.addEventListener("pointerdown", function(e){
-    dragging = true; tween = null; inertia = 0; vel = 0;
+    dragging = true; inertia = 0; vel = 0;
     dragX = lastX = e.clientX; dragT = video.currentTime; lastMoveT = performance.now();
     video.pause();
     zone.setPointerCapture(e.pointerId);
@@ -403,14 +244,7 @@
   zone.addEventListener("pointercancel", endDrag);
 
   function stageTick(now){
-    if (tween) {
-      var p = Math.min(1, (now - tween.start) / tween.durMs);
-      var e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;   // easeInOutQuad
-      var d = dur();
-      var t = (tween.from + tween.delta * e) % d; if (t < 0) t += d;
-      video.currentTime = t;
-      if (p >= 1) tween = null;
-    } else if (!dragging && inertia !== 0) {
+    if (!dragging && inertia !== 0) {
       var el = now - inertiaStart;
       var dtF = Math.min(0.05, (now - (lastTick || now)) / 1000);
       var speed = inertia * Math.exp(-el / 300);          // px/s, ~300ms decay constant
@@ -423,11 +257,7 @@
       }
     }
     lastTick = now;
-    if (!dragging && !tween && video.paused && now > holdUntil && !reduced) video.play();
-    if (video.duration) {
-      fill.style.width = (video.currentTime / video.duration * 100) + "%";
-      if (!dragging && !tween) setAngleUI(nearestAngle(video.currentTime));
-    }
+    if (!dragging && video.paused && now > holdUntil && !reduced) video.play();
     requestAnimationFrame(stageTick);
   }
   requestAnimationFrame(stageTick);
