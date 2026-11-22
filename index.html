@@ -6,7 +6,7 @@
 <title>RAAIN — Fashion for Now and Forever</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Liberation+Mono&display=swap" rel="stylesheet"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { background:#E7EEF1; }
@@ -86,9 +86,9 @@
   }
   .watermark {
     position:absolute; z-index:1;
-    top:205px; left:50%; transform:translateX(-50%);
-    font-family:"Nunito", sans-serif; font-weight:900;
-    font-size:min(248px, 19.9vw); line-height:1; letter-spacing:10px;
+    top:280px; left:50%; transform:translateX(-50%);
+    font-family:"Bebas Neue", sans-serif; font-weight:400;
+    font-size:min(370px, 29.6vw); line-height:1; letter-spacing:14px;
     color:rgba(255,255,255,.48);
     user-select:none; pointer-events:none; white-space:nowrap;
     animation:wm-in 1.6s cubic-bezier(.22,1,.36,1) both;
@@ -122,9 +122,15 @@
   }
   .left-col { width:447px; max-width:44%; padding-top:16px; }
   h1 {
-    font-family:"Nunito", sans-serif; font-weight:900;
-    font-size:64px; line-height:.98; letter-spacing:-1px; color:#1E293B;
-    width:660px; max-width:none;
+    position:relative; z-index:2;
+    font-family:"Bebas Neue", sans-serif; font-weight:400;
+    font-size:clamp(64px, 17.5vw, 218px); line-height:.94; letter-spacing:2px;
+    width:100%; max-width:none; text-align:center; color:#FFFFFF;
+  }
+  h1 .line > span {
+    background:linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,.66));
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
   h1 .line { display:block; overflow:hidden; }
@@ -133,21 +139,6 @@
   h1 .line:nth-child(3) > span { animation-delay:.23s } h1 .line:nth-child(4) > span { animation-delay:.32s }
   h1 .line:nth-child(5) > span { animation-delay:.41s }
   @keyframes line-rise { from{transform:translateY(112%)} to{transform:translateY(0)} }
-  /* headline part 2 — right of the mannequin */
-  .right-col { width:560px; max-width:48%; padding-top:16px; }
-  .headline-r {
-    font-family:"Nunito", sans-serif; font-weight:900;
-    font-size:64px; line-height:.98; letter-spacing:-1px; color:#1E293B;
-    text-align:right;
-    width:560px; max-width:none;
-  }
-  .headline-r .line { display:block; overflow:hidden; }
-  .headline-r .line > span { display:block; animation:line-rise .95s cubic-bezier(.22,1,.36,1) both; }
-  .headline-r .line:nth-child(1) > span { animation-delay:.23s }
-  .headline-r .line:nth-child(2) > span { animation-delay:.32s }
-  .headline-r .line:nth-child(3) > span { animation-delay:.41s }
-  .right-col .side-links { margin:26px 0 0 auto; }
-
   .lede {
     margin-top:24px; width:371px; max-width:100%;
     font-size:14px; line-height:20px; letter-spacing:.35px; color:#475569;
@@ -256,9 +247,7 @@
     .stage-zone { position:relative; top:0; height:440px; margin:6px auto -6px; order:2; }
     .hero-row { flex-direction:column; order:1; }
     .left-col { max-width:100%; width:100%; }
-    h1 { font-size:40px; line-height:1; width:100%; }
-    .right-col { width:100%; max-width:100%; padding-top:0; }
-    .headline-r { font-size:40px; line-height:1; width:100%; text-align:left; }
+    h1 { line-height:1; width:100%; }
     .side-links { display:none; }
     .bottom-row { flex-direction:column; align-items:flex-start; order:3; margin-top:18px; }
     .centre-label { display:none; }
@@ -294,22 +283,20 @@
         <div class="stage-hint">DRAG TO ROTATE</div>
       </div>
 
+      <h1><span class="line"><span>DRESS LIKE</span></span><span class="line"><span>YOU BELONG</span></span></h1>
+
       <div class="hero-row">
         <div class="left-col">
-          <h1><span class="line"><span>FASHION FOR</span></span><span class="line"><span>NOW</span></span></h1>
           <div class="actions">
             <button class="btn-dark" type="button"><span class="btn-label">Explore Collection <span>→</span></span></button>
             <button class="btn-ghost" type="button"><span class="btn-label">About Us <span>→</span></span></button>
           </div>
         </div>
-        <div class="right-col">
-          <div class="headline-r"><span class="line"><span>AND FOREVER</span></span><span class="line"><span>WITH</span></span><span class="line"><span>RAAIN</span></span></div>
-          <div class="side-links">
+        <div class="side-links">
           <a href="#" data-cursor="link">Business Listing <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Contact Culture <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Business Devices <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Market Creation <span class="arr">↗</span></a>
-          </div>
         </div>
       </div>
 
