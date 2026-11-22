@@ -238,6 +238,10 @@
   .pager button:active { transform:scale(.94); }
   .email { font-family:"Liberation Mono", monospace; font-size:11px; color:rgba(71,85,105,.64); padding-right:2px; }
   #dot-cursor-canvas { position:fixed; inset:0; z-index:9999; pointer-events:none; }
+  /* Temporarily removed 2026-11-22 (user: "remove all these for now") - CTA buttons, side-links, NEW COLLECTION card.
+     Hidden, not deleted: the card controls are wired into the rotation script. */
+  .actions, .side-links, .card-wrap { display:none !important; }
+
   @media (max-width:900px) {
     header { padding:14px 16px 0; flex-wrap:wrap; }
     .logo { position:static; transform:none; order:-1; }
