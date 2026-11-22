@@ -17,16 +17,17 @@
   body {
     font-family:"Plus Jakarta Sans", sans-serif;
     color:#1E293B;
-    min-height:100vh;
-    display:flex; align-items:flex-start; justify-content:center;
-    padding:28px 16px;
+    height:100dvh; overflow:hidden;
+    display:flex;
+    padding:12px;
   }
 
   html.has-dot-cursor, html.has-dot-cursor * { cursor:none !important; }
 
   /* ---------- white frame ---------- */
   .frame {
-    width:100%; max-width:1248px;
+    width:100%; height:100%;
+    display:flex; flex-direction:column;
     background:#FDFEFE;
     border-radius:28px;
     padding:14px;
@@ -35,6 +36,7 @@
 
   /* ---------- nav bar — its own separate bar ---------- */
   .navbar {
+    flex:none;
     position:relative; z-index:30;
     display:flex; align-items:center; justify-content:space-between; gap:16px;
     min-height:66px;
@@ -95,7 +97,7 @@
     margin-top:14px;
     border-radius:22px;
     overflow:hidden;
-    min-height:748px;
+    flex:1; min-height:0;
     display:flex; flex-direction:column;
     padding:46px 48px 30px 48px;
     background:#FCFCFA;
@@ -126,8 +128,8 @@
   .stage-zone {
     position:absolute; z-index:5;
     left:39%; transform:translateX(-50%);
-    top:66px;
-    height:604px; max-height:82%;
+    top:40px;
+    height:min(604px, calc(100% - 108px));
     aspect-ratio:820 / 1056;
     touch-action:pan-y;
   }
@@ -181,14 +183,14 @@
   #dot-cursor-canvas { position:fixed; inset:0; z-index:9999; pointer-events:none; }
 
   @media (max-width:900px) {
-    body { padding:14px 8px; }
-    .frame { padding:10px; border-radius:22px; }
+    body { padding:14px 8px; height:auto; overflow:visible; }
+    .frame { padding:10px; border-radius:22px; height:auto; display:block; }
     .navbar { padding:12px 16px; flex-wrap:wrap; border-radius:14px; min-height:0; }
     .logo { position:static; transform:none; order:-1; }
     nav.links { gap:18px; }
     nav.links a { font-size:11px; }
     .search { display:none; }
-    .hero { min-height:0; padding:28px 20px 22px; border-radius:18px; margin-top:10px; }
+    .hero { flex:none; min-height:0; padding:28px 20px 22px; border-radius:18px; margin-top:10px; }
     .rail { position:static; width:100%; flex-direction:row; justify-content:center; padding:14px 0; order:3; border-radius:14px; }
     .title-block { position:static; transform:none; order:1; flex-direction:column; gap:10px; align-items:center; }
     .tagline-v { display:none; }
