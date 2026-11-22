@@ -104,10 +104,12 @@
 
   .watermark {
     position:absolute; z-index:1;
-    top:272px; left:50%; transform:translateX(-50%);
+    top:452px; left:50%; transform:translateX(-50%);
     font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:min(360px, 28.8vw); line-height:1; letter-spacing:14px;
-    color:rgba(255,255,255,.48);
+    font-size:min(370px, 29.6vw); line-height:1; letter-spacing:10px;
+    background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.26));
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent;
     user-select:none; pointer-events:none; white-space:nowrap;
     animation:wm-in 1.6s cubic-bezier(.22,1,.36,1) both;
   }
@@ -139,7 +141,7 @@
   h1 {
     position:relative; z-index:2;
     font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:clamp(64px, 17vw, 214px); line-height:.94; letter-spacing:2px;
+    font-size:clamp(64px, 16vw, 200px); line-height:.94; letter-spacing:2px;
     width:100%; max-width:none; text-align:center; color:#FFFFFF;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
