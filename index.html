@@ -6,7 +6,7 @@
 <title>RAAIN — Fashion for Now and Forever</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -98,27 +98,34 @@
     min-height:748px;
     display:flex; flex-direction:column;
     padding:46px 48px 30px 48px;
-    background:radial-gradient(120% 90% at 75% 20%, #D8EBF3 0%, #B8D6E3 45%, #9FC3D9 100%);
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+    background:#FCFCFA;
+    box-shadow:inset 0 0 0 1px rgba(30,41,59,.08);
   }
 
-  .watermark {
-    position:absolute; z-index:1;
-    top:452px; left:50%; transform:translateX(-50%);
-    font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:min(370px, 29.6vw); line-height:1; letter-spacing:10px;
-    background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.26));
-    -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent; color:transparent;
-    user-select:none; pointer-events:none; white-space:nowrap;
-    animation:wm-in 1.6s cubic-bezier(.22,1,.36,1) both;
+  /* dark angle rail — the reference's left strip */
+  .rail {
+    position:absolute; z-index:6; left:0; top:0; bottom:0; width:92px;
+    background:#101418;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+    padding:24px 0;
+    animation:fade-in 1s ease .2s both;
   }
-  @keyframes wm-in { from{opacity:0; transform:translateX(-50%) scale(1.05)} to{opacity:1; transform:translateX(-50%) scale(1)} }
+  .rail button {
+    background:none; border:0; padding:0; font-family:inherit; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; gap:7px;
+    opacity:.55; transition:opacity .3s;
+  }
+  .rail button img { width:58px; height:72px; object-fit:cover; object-position:top; border-radius:8px; background:#1E293B; }
+  .rail button span { font-size:8px; font-weight:600; letter-spacing:2.2px; color:#CBD5E1; }
+  .rail button:hover { opacity:.85; }
+  .rail button.active { opacity:1; }
+  .rail button.active img { box-shadow:0 0 0 2px #fff; }
+  @keyframes fade-in { from{opacity:0} to{opacity:1} }
 
   /* the rotating mannequin — centre stage, in front of the watermark */
   .stage-zone {
     position:absolute; z-index:5;
-    left:50%; transform:translateX(-50%);
+    left:39%; transform:translateX(-50%);
     top:66px;
     height:604px; max-height:82%;
     aspect-ratio:820 / 1056;
@@ -138,23 +145,35 @@
     animation:fade-up .8s ease 1.2s both;
   }
 
+  .title-block {
+    position:absolute; z-index:2;
+    right:54px; top:50%; transform:translateY(-52%);
+    display:flex; align-items:center; gap:28px;
+  }
+  .tagline-v {
+    writing-mode:vertical-rl; transform:rotate(180deg);
+    font-size:11px; font-weight:600; letter-spacing:3.5px; color:#101418;
+    white-space:nowrap;
+    animation:fade-in 1s ease .5s both;
+  }
+  .title-meta {
+    display:flex; align-items:center; gap:12px;
+    font-size:10px; font-weight:600; letter-spacing:4px; color:#101418;
+    margin-bottom:16px;
+    animation:fade-in 1s ease .4s both;
+  }
+  .title-meta .diamonds { font-size:8px; letter-spacing:5px; }
   h1 {
-    position:relative; z-index:2;
-    font-family:"Bebas Neue", sans-serif; font-weight:400;
-    font-size:clamp(64px, 16vw, 200px); line-height:.94; letter-spacing:2px;
-    width:100%; max-width:none; text-align:center; color:#FFFFFF;
+    font-family:"Anton", sans-serif; font-weight:400;
+    font-size:112px; line-height:.96; letter-spacing:.5px; color:#101418;
+    text-align:left;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
   h1 .line { display:block; overflow:hidden; }
-  h1 .line > span {
-    display:block;
-    background:linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,.66));
-    -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:line-rise .95s cubic-bezier(.22,1,.36,1) both;
-  }
+  h1 .line > span { display:block; animation:line-rise .95s cubic-bezier(.22,1,.36,1) both; }
   h1 .line:nth-child(1) > span { animation-delay:.05s }
   h1 .line:nth-child(2) > span { animation-delay:.14s }
+  h1 .line:nth-child(3) > span { animation-delay:.23s }
   @keyframes line-rise { from{transform:translateY(112%)} to{transform:translateY(0)} }
 
   @keyframes fade-up { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
@@ -170,9 +189,12 @@
     nav.links a { font-size:11px; }
     .search { display:none; }
     .hero { min-height:0; padding:28px 20px 22px; border-radius:18px; margin-top:10px; }
-    .watermark { font-size:34vw; letter-spacing:12px; top:290px; }
-    h1 { line-height:1; width:100%; order:1; }
-    .stage-zone { position:relative; top:0; height:440px; margin:6px auto -6px; order:2; }
+    .rail { position:static; width:100%; flex-direction:row; justify-content:center; padding:14px 0; order:3; border-radius:14px; }
+    .title-block { position:static; transform:none; order:1; flex-direction:column; gap:10px; align-items:center; }
+    .tagline-v { display:none; }
+    .title-meta { justify-content:center; }
+    h1 { font-size:64px; line-height:1; text-align:center; }
+    .stage-zone { position:relative; left:0; transform:none; top:0; height:440px; margin:6px auto -6px; order:2; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation:none !important; transition:none !important; }
@@ -194,8 +216,6 @@
     </header>
 
     <section class="hero">
-      <div class="watermark">RAAIN</div>
-
       <div class="stage-zone" id="stageZone" data-cursor="stage" role="button" aria-label="Drag to rotate the mannequin">
         <video class="stage-video" id="stageVideo" autoplay muted loop playsinline poster="poster.png" aria-label="Rotating mannequin wearing the taupe RAAIN set">
           <source src="mannequin-alpha.webm" type="video/webm"/>
@@ -203,7 +223,19 @@
         <div class="stage-hint">DRAG TO ROTATE</div>
       </div>
 
-      <h1><span class="line"><span>DRESS LIKE</span></span><span class="line"><span>YOU BELONG</span></span></h1>
+      <aside class="rail" aria-label="Viewing angles">
+        <button type="button" class="thumb active" data-angle="0"><img src="thumb_0.3.jpg" alt="Taupe set, front"/><span>FRONT</span></button>
+        <button type="button" class="thumb" data-angle="1"><img src="thumb_2.0.jpg" alt="Taupe set, side"/><span>SIDE</span></button>
+        <button type="button" class="thumb" data-angle="2"><img src="thumb_4.0.jpg" alt="Taupe set, back"/><span>BACK</span></button>
+      </aside>
+
+      <div class="title-block">
+        <div class="tagline-v">FASHION FOR NOW AND FOREVER</div>
+        <div>
+          <div class="title-meta"><span class="diamonds">◆◆◆◆◆</span><span>2024 CATALOGUE</span></div>
+          <h1><span class="line"><span>DRESS</span></span><span class="line"><span>LIKE YOU</span></span><span class="line"><span>BELONG</span></span></h1>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -219,9 +251,32 @@
   var holdUntil = 0;                        // stage stays paused while now < holdUntil
   function dur(){ return video.duration || 7.85; }
 
+  var ANGLES = [0.2, 2.1, 4.1];           // front / side / back, seconds into the loop
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".thumb"));
+  var tween = null, lastAngle = 0;
+  function flyTo(target, holdMs){
+    var d = dur();
+    var from = video.currentTime;
+    var delta = ((target - from) % d + d) % d;
+    if (delta > d/2) delta -= d;            // shortest way around the loop
+    tween = { from: from, delta: delta, start: performance.now(), durMs: 650 };
+    holdUntil = performance.now() + 650 + (holdMs || 0);
+    video.pause();
+  }
+  function nearestAngle(t){
+    var best=0, bd=1e9;
+    ANGLES.forEach(function(a,i){ var dd=Math.abs(t-a); if(dd<bd){bd=dd;best=i;} });
+    return best;
+  }
+  thumbs.forEach(function(t,i){ t.addEventListener("click", function(){
+    lastAngle = i;
+    thumbs.forEach(function(x,j){ x.classList.toggle("active", j===i); });
+    flyTo(ANGLES[i], 1500);
+  }); });
+
   var dragging = false, dragX = 0, dragT = 0, lastX = 0, lastMoveT = 0, vel = 0, inertia = 0, inertiaStart = 0, lastTick = 0;
   zone.addEventListener("pointerdown", function(e){
-    dragging = true; inertia = 0; vel = 0;
+    dragging = true; tween = null; inertia = 0; vel = 0;
     dragX = lastX = e.clientX; dragT = video.currentTime; lastMoveT = performance.now();
     video.pause();
     zone.setPointerCapture(e.pointerId);
@@ -246,7 +301,14 @@
   zone.addEventListener("pointercancel", endDrag);
 
   function stageTick(now){
-    if (!dragging && inertia !== 0) {
+    if (tween) {
+      var p = Math.min(1, (now - tween.start) / tween.durMs);
+      var e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;   // easeInOutQuad
+      var d = dur();
+      var t = (tween.from + tween.delta * e) % d; if (t < 0) t += d;
+      video.currentTime = t;
+      if (p >= 1) tween = null;
+    } else if (!dragging && inertia !== 0) {
       var el = now - inertiaStart;
       var dtF = Math.min(0.05, (now - (lastTick || now)) / 1000);
       var speed = inertia * Math.exp(-el / 300);          // px/s, ~300ms decay constant
@@ -259,7 +321,11 @@
       }
     }
     lastTick = now;
-    if (!dragging && video.paused && now > holdUntil && !reduced) video.play();
+    if (!dragging && !tween && video.paused && now > holdUntil && !reduced) video.play();
+    if (video.duration && !dragging && !tween) {
+      var na = nearestAngle(video.currentTime);
+      if (na !== lastAngle) { lastAngle = na; thumbs.forEach(function(x,j){ x.classList.toggle("active", j===na); }); }
+    }
     requestAnimationFrame(stageTick);
   }
   requestAnimationFrame(stageTick);
