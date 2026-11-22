@@ -123,7 +123,7 @@
   .left-col { width:447px; max-width:44%; padding-top:16px; }
   h1 {
     font-family:"Nunito", sans-serif; font-weight:900;
-    font-size:74px; line-height:.98; letter-spacing:-1px; color:#1E293B;
+    font-size:64px; line-height:.98; letter-spacing:-1px; color:#1E293B;
     width:660px; max-width:none;
   }
   /* Mask Text Reveal (OriginKit) — lines rise out of a clip mask, staggered */
@@ -133,6 +133,21 @@
   h1 .line:nth-child(3) > span { animation-delay:.23s } h1 .line:nth-child(4) > span { animation-delay:.32s }
   h1 .line:nth-child(5) > span { animation-delay:.41s }
   @keyframes line-rise { from{transform:translateY(112%)} to{transform:translateY(0)} }
+  /* headline part 2 — right of the mannequin */
+  .right-col { width:560px; max-width:48%; padding-top:16px; }
+  .headline-r {
+    font-family:"Nunito", sans-serif; font-weight:900;
+    font-size:64px; line-height:.98; letter-spacing:-1px; color:#1E293B;
+    text-align:right;
+    width:560px; max-width:none;
+  }
+  .headline-r .line { display:block; overflow:hidden; }
+  .headline-r .line > span { display:block; animation:line-rise .95s cubic-bezier(.22,1,.36,1) both; }
+  .headline-r .line:nth-child(1) > span { animation-delay:.23s }
+  .headline-r .line:nth-child(2) > span { animation-delay:.32s }
+  .headline-r .line:nth-child(3) > span { animation-delay:.41s }
+  .right-col .side-links { margin:26px 0 0 auto; }
+
   .lede {
     margin-top:24px; width:371px; max-width:100%;
     font-size:14px; line-height:20px; letter-spacing:.35px; color:#475569;
@@ -242,6 +257,8 @@
     .hero-row { flex-direction:column; order:1; }
     .left-col { max-width:100%; width:100%; }
     h1 { font-size:40px; line-height:1; width:100%; }
+    .right-col { width:100%; max-width:100%; padding-top:0; }
+    .headline-r { font-size:40px; line-height:1; width:100%; text-align:left; }
     .side-links { display:none; }
     .bottom-row { flex-direction:column; align-items:flex-start; order:3; margin-top:18px; }
     .centre-label { display:none; }
@@ -279,32 +296,24 @@
 
       <div class="hero-row">
         <div class="left-col">
-          <h1><span class="line"><span>FASHION FOR</span></span><span class="line"><span>NOW</span></span><span class="line"><span>AND FOREVER</span></span><span class="line"><span>WITH</span></span><span class="line"><span>RAAIN</span></span></h1>
-          <p class="lede">Fashion Raain elevated timeless silhouettes, heatless, and premium form. Pioneering loose community at its poetics realm.</p>
+          <h1><span class="line"><span>FASHION FOR</span></span><span class="line"><span>NOW</span></span></h1>
           <div class="actions">
             <button class="btn-dark" type="button"><span class="btn-label">Explore Collection <span>→</span></span></button>
             <button class="btn-ghost" type="button"><span class="btn-label">About Us <span>→</span></span></button>
           </div>
         </div>
-        <div class="side-links">
+        <div class="right-col">
+          <div class="headline-r"><span class="line"><span>AND FOREVER</span></span><span class="line"><span>WITH</span></span><span class="line"><span>RAAIN</span></span></div>
+          <div class="side-links">
           <a href="#" data-cursor="link">Business Listing <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Contact Culture <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Business Devices <span class="arr">↗</span></a>
           <a href="#" data-cursor="link">Market Creation <span class="arr">↗</span></a>
+          </div>
         </div>
       </div>
 
       <div class="bottom-row">
-        <div class="metrics">
-          <div style="width:96px;height:96px;border-radius:50%;background:conic-gradient(#A4CBDF 0 32%, #8CB7CD 32% 55%, rgba(255,255,255,.38) 55% 100%);box-shadow:inset 0 0 0 3px rgba(255,255,255,.65), 0 0 0 1px rgba(255,255,255,.35);position:relative;flex:none"><div style="position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:#fff"></div></div>
-          <div class="stack">
-            <div class="avatars">
-              <img src="thumb_0.3.jpg" alt=""/><img src="thumb_2.0.jpg" alt=""/><img src="thumb_4.0.jpg" alt=""/><img src="thumb_0.3.jpg" alt=""/><img src="thumb_2.0.jpg" alt=""/>
-            </div>
-            <div class="cap">Last Atelier Collections</div>
-          </div>
-        </div>
-
         <div class="centre-label">RAAIN 2024 CATALOGUE</div>
 
         <div class="card-wrap">
